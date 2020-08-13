@@ -1,8 +1,21 @@
-﻿@{
+﻿@model COVID19WebApp.Models.RowsObject
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div>
+    @foreach(string s in Covid19Results)
+    {
+        <p>
+            @Covid19Results;
+        </p>
+    }
+
 </div>

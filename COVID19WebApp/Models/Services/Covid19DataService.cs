@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using COVID19WebApp.Models.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
