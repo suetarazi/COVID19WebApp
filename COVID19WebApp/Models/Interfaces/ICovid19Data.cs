@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace COVID19WebApp.Models
 {
-    interface ICovid19Data
+    public interface ICovid19Data
     {
+        Task<RowsObject> GetCovid19WorldData();
+        Task<RowsObject> GetCovid19DataForCountry();
     }
 }
