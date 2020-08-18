@@ -29,9 +29,9 @@ namespace COVID19WebApp.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Index(RowsObject rows)
+        public async Task<IActionResult> Index(DataObject rows)
         {
-            RowsObject result = await _covid19.GetCovid19WorldData();
+            DataObject result = await _covid19.GetCovid19WorldData();
             return View(result);
         }
 

@@ -8,7 +8,13 @@ namespace COVID19WebApp.Models
 {
     public class DataObject
     {
-        [JsonPropertyName("data")]
-        public RowsObject Data { get; set; }
+        [JsonPropertyName("paginationMeta")]
+        public Object Pagination { get; set; }
+
+        [JsonPropertyName("last_update")]
+        public Object LastUpdated { get; set; }
+
+        [JsonPropertyName("rows")]
+        public Covid19Results[] Rows { get; set; }
     }
 }
