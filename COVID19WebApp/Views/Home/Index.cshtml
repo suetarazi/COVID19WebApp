@@ -1,4 +1,4 @@
-﻿@model COVID19WebApp.Models.RowsObject
+﻿@model COVID19WebApp.Models.DataObject
 
 @{
     ViewData["Title"] = "Home Page";
@@ -18,12 +18,14 @@
     <p> This website gathers information and statistics about COVID-19 using the Corona-Virus-Stats API</p>
 </div>
 
+<button action ="post">Get World Results</button>
+
 <div>
-    @foreach(string s in Covid19Results)
+    @*@foreach(string s in Covid19Results)
     {
         <p>
             @Covid19Results;
         </p>
-    }
+    }*@
 
 </div>

@@ -13,15 +13,15 @@ namespace COVID19WebApp.Models.Services
     {
         private static readonly HttpClient client = new HttpClient();
 
-        public Task<RowsObject> GetCovid19DataForCountry()
+        public Task<DataObject> GetCovid19DataForCountry()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<RowsObject> GetCovid19WorldData()
+        public async Task<DataObject> GetCovid19WorldData(string country)
         {
-            var baseUrl = @"https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search";
-            string route = "country";
+            var baseUrl = @"https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=";
+            string route = "world";
 
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -29,9 +29,14 @@ namespace COVID19WebApp.Models.Services
 
             var response = await client.GetStringAsync($"{baseUrl}/{route}");
 
-            RowsObject rows = JsonConvert.DeserializeObject<RowsObject>(response);
+            DataObject rows = JsonConvert.DeserializeObject<DataObject>(response);
 
             return rows;
+        }
+
+        public Task<DataObject> GetCovid19WorldData()
+        {
+            throw new NotImplementedException();
         }
     }
 }
