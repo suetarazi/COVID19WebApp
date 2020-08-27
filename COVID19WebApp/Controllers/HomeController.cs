@@ -22,16 +22,17 @@ namespace COVID19WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            DataObject result = await _covid19.GetCovid19WorldData();
+            return View(result);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Index(DataObject rows)
+        public async Task<IActionResult> Index(string country)
         {
-            DataObject result = await _covid19.GetCovid19WorldData();
+            DataObject result = await _covid19.GetCovid19DataForCountry(country);
             return View(result);
         }
 

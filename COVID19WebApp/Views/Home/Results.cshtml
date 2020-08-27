@@ -1,0 +1,27 @@
+﻿@model COVID19WebApp.Models.DataObject
+
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1>Results</h1>
+
+<div>
+    <p>World Results</p>
+    @foreach (var row in Model.Rows)
+    {
+        <p>country:@row.Country</p>
+        <p>total_cases:@row.TotalCases</p>
+    }
+</div>
+
+<div>
+    <p>Country Results</p>
+
+    @foreach(var row in Model.Rows)
+    {
+        <p>country:@row.Country</p>
+        <p>total_cases:@row.TotalCases</p>
+    }
+
+</div>

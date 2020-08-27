@@ -18,7 +18,14 @@
     <p> This website gathers information and statistics about COVID-19 using the Corona-Virus-Stats API</p>
 </div>
 
-<button action ="post">Get World Results</button>
+<div>
+<p>World Results</p>
+    @foreach (var row in Model.Rows)
+    {
+    <p>country:@row.Country</p>
+    <p>total_cases:@row.TotalCases</p>
+    }
+</div>
 
 <section id="CountryInfo">
     <h3>Get COVID-19 for a specific country</h3>
