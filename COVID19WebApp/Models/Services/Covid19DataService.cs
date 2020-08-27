@@ -12,15 +12,25 @@ namespace COVID19WebApp.Models.Services
     public class Covid19DataService : ICovid19Data
     {
         private static readonly HttpClient client = new HttpClient();
+        private string baseUrl = @"https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=";
 
+        /// <summary>
+        /// Get specific covid-19 data for a given country
+        /// </summary>
+        ///<param name="country">the country entered</param>
+        /// <returns></returns>
         public Task<DataObject> GetCovid19DataForCountry()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="country"></param>
+        /// <returns></returns>
         public async Task<DataObject> GetCovid19WorldData(string country)
         {
-            var baseUrl = @"https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=";
             string route = "world";
 
             client.DefaultRequestHeaders.Accept.Clear();

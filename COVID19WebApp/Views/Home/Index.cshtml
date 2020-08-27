@@ -20,6 +20,16 @@
 
 <button action ="post">Get World Results</button>
 
+<section id="CountryInfo">
+    <h3>Get COVID-19 for a specific country</h3>
+    <form asp-action="GetCountryInfo" asp-controller="Home" method="post">
+        <label asp-for="Rows">Country Name</label>
+        <input asp-for="Rows" />
+        <button type="submit">Get Country Data</button>
+
+    </form>
+</section>
+
 <div>
     @*@foreach(string s in Covid19Results)
     {
