@@ -19,9 +19,19 @@ namespace COVID19WebApp.Models.Services
         /// </summary>
         ///<param name="country">the country entered</param>
         /// <returns></returns>
-        public Task<DataObject> GetCovid19DataForCountry()
+        public async Task<DataObject> GetCovid19DataForCountry(string country)
         {
-            throw new NotImplementedException();
+            string route = "country";
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var response = await client.GetStringAsync($"{baseUrl}/{route}");
+            
+            DataObject rows = JsonConvert.DeserializeObject<DataObject>(response);
+
+            return rows;
         }
 
         /// <summary>
@@ -29,7 +39,7 @@ namespace COVID19WebApp.Models.Services
         /// </summary>
         /// <param name="country"></param>
         /// <returns></returns>
-        public async Task<DataObject> GetCovid19WorldData(string country)
+        public async Task<DataObject> GetCovid19WorldData()
         {
             string route = "world";
 
@@ -44,9 +54,5 @@ namespace COVID19WebApp.Models.Services
             return rows;
         }
 
-        public Task<DataObject> GetCovid19WorldData()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
