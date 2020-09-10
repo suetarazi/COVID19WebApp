@@ -1,4 +1,4 @@
-﻿@model COVID19WebApp.Models.DataObject
+﻿@model COVID19WebApp.Models.WorldDataObject
 
 @{
     ViewData["Title"] = "Home Page";
@@ -7,6 +7,8 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1>UNDER CONSTRUCTION!!!</h1>
+    <h1>This is a COVID-19 Web App that integrates with an external API that provides world and country pandemic data.</h1>
 </div>
 
 <div>
@@ -20,18 +22,21 @@
 
 <div>
 <p>World Results</p>
-    @foreach (var row in Model.Rows)
+    @foreach (var result in Model.Results)
     {
-    <p>country:@row.Country</p>
-    <p>total_cases:@row.TotalCases</p>
+    <p>total_cases:@result.Confirmed</p>
+    <p>total_deaths:@result.Deaths</p>
+    <p>total_recovered:@result.Recovered</p>
     }
+    @*<p>Last Updated: @Convert.ToDateTime(Model.Last_Updated)</p>*@
+
 </div>
 
 <section id="CountryInfo">
     <h3>Get COVID-19 for a specific country</h3>
     <form asp-action="GetCountryInfo" asp-controller="Home" method="post">
-        <label asp-for="Rows">Country Name</label>
-        <input asp-for="Rows" />
+        <label asp-for="Results">Country Name</label>
+        <input asp-for="Results" />
         <button type="submit">Get Country Data</button>
 
     </form>

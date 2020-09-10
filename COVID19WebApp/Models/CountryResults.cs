@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace COVID19WebApp.Models
 {
-
-    //from API: https://2019ncov.asia/api/cdr
-    //this class represents the array objects inside WorldDataObject.cs
-
-    public class WorldResults
+    public class CountryResults
     {
+        [JsonPropertyName("country_region")]
+        public string CountryRegion { get; set; }
+
         [JsonPropertyName("confirmed")]
         public string Confirmed { get; set; }
 
@@ -20,5 +19,8 @@ namespace COVID19WebApp.Models
 
         [JsonPropertyName("recovered")]
         public string Recovered { get; set; }
+
+        [JsonPropertyName("last_updated")]
+        public string Last_Updated { get; set; }
     }
 }
