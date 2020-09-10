@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using COVID19WebApp.Models;
 using COVID19WebApp.Models.Interfaces;
+using CountryDataObject = COVID19WebApp.Models.Interfaces.CountryDataObject;
 
 namespace COVID19WebApp.Controllers
 {
@@ -24,7 +25,7 @@ namespace COVID19WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            DataObject result = await _covid19.GetCovid19WorldData();
+            WorldDataObject result = await _covid19.GetCovid19WorldData();
             return View(result);
         }
 
@@ -32,8 +33,17 @@ namespace COVID19WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(string country)
         {
-            DataObject result = await _covid19.GetCovid19DataForCountry(country);
-            return View(result);
+            CountryDataObject result = await _covid19.GetCovid19DataForCountry(country);
+            try
+            {
+                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+                
         }
 
         public IActionResult Privacy()
