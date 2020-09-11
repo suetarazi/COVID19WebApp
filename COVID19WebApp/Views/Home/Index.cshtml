@@ -14,7 +14,7 @@
 <br />
 <div>
     <h2>Novel coronavirus</h2>
-    <img id="heroImage" src="https://lh3.googleusercontent.com/M6BeDcz7AtsH9e8XATewMG5CbY7tW5x4o4eONolbFueTXC-Oq5maV9HloXBkzC-KGbu8hQ=s163" width="100vw"/>
+    <img id="heroImage" src="https://lh3.googleusercontent.com/M6BeDcz7AtsH9e8XATewMG5CbY7tW5x4o4eONolbFueTXC-Oq5maV9HloXBkzC-KGbu8hQ=s163" width="960"/>
     <p>
         Novel coronavirus (COVID-19) is a virus that is affecting the entire world community!
 
@@ -36,7 +36,7 @@
 
 <section id="CountryInfo">
     <h3>Get COVID-19 for a specific country</h3>
-    <form asp-action="GetCountryInfo" asp-controller="Home" method="post">
+    <form asp-action="Results" asp-controller="Home" method="post">
         <label asp-for="Results">Country Name</label>
         <input asp-for="Results" />
         <button type="submit">Get Country Data</button>
