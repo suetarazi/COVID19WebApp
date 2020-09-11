@@ -22,9 +22,9 @@ namespace COVID19WebApp.Models.Services
         /// </summary>
         ///<param name="country">the country entered</param>
         /// <returns></returns>
-        public async Task<CountryDataObject> GetCovid19DataForCountry(string country_region)
+        public async Task<CountryDataObject> GetCovid19DataForCountry(string country)
         {
-            string route = country_region;
+            string route = "country_region";
 
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -34,7 +34,11 @@ namespace COVID19WebApp.Models.Services
             
             CountryDataObject countryResults = JsonConvert.DeserializeObject<CountryDataObject>(response);
 
-            return countryResults;
+            CountryDataObject queryObject = countryResults.Where(x => x.country_region == country);
+
+            return queryObject;
+
+            
         }
 
         /// <summary>
@@ -57,9 +61,5 @@ namespace COVID19WebApp.Models.Services
             return results;
         }
 
-        Task<Interfaces.CountryDataObject> ICovid19Data.GetCovid19DataForCountry(string country)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
