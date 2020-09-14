@@ -33,9 +33,9 @@ namespace COVID19WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Results(string country)
         {
-            CountryDataObject result = await _covid19.GetCovid19DataForCountry(country);
+            List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
 
-            return View(result);
+            return View(results);
             //try
             //{
             //    return RedirectToAction(nameof(Index));

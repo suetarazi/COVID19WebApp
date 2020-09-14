@@ -8,7 +8,7 @@ namespace COVID19WebApp.Models.Interfaces
     public interface ICovid19Data
     {
         Task<WorldDataObject> GetCovid19WorldData();
-        Task<CountryDataObject> GetCovid19DataForCountry(string country);
+        Task<List<CountryResults>> GetCovid19DataForCountry(string country);
 
     }
 }

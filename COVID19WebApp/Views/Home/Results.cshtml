@@ -1,4 +1,4 @@
-﻿@model COVID19WebApp.Models.CountryDataObject
+﻿@model List<COVID19WebApp.Models.CountryResults>
 
 @{
     ViewData["Title"] = "Results";
@@ -8,13 +8,13 @@
 
 <div>
     <p>Country Results</p>
-    @foreach (var row in Model.CountryResults)
+    @foreach (var result in Model)
     {
-        <p>country name:@row.CountryRegion</p>
-        <p>confirmed total cases:@row.Confirmed</p>
-        <p>confirmed deaths: @row.Deaths</p>
-        <p>confirmed recovered: @row.Recovered</p>
-        <p>last updated: @Convert.ToDateTime(row.Last_Updated)</p>
+        <p>country name:@result.CountryRegion</p>
+        <p>confirmed total cases:@result.Confirmed</p>
+        <p>confirmed deaths: @result.Deaths</p>
+        <p>confirmed recovered: @result.Recovered</p>
+        <p>last updated: @Convert.ToDateTime(result.Last_Updated)</p>
     }
 </div>
 
