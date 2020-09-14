@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -8,19 +9,19 @@ namespace COVID19WebApp.Models
 {
     public class CountryResults
     {
-        [JsonPropertyName("country_region")]
+        [JsonProperty("country_region")]
         public string CountryRegion { get; set; }
 
-        [JsonPropertyName("confirmed")]
+        [JsonProperty("confirmed")]
         public string Confirmed { get; set; }
 
-        [JsonPropertyName("deaths")]
+        [JsonProperty("deaths")]
         public string Deaths { get; set; }
 
-        [JsonPropertyName("recovered")]
+        [JsonProperty("recovered")]
         public string Recovered { get; set; }
 
-        [JsonPropertyName("last_updated")]
+        [JsonProperty("last_updated")]
         public string Last_Updated { get; set; }
     }
 }

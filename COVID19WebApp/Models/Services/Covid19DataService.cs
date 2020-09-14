@@ -22,7 +22,7 @@ namespace COVID19WebApp.Models.Services
         /// </summary>
         ///<param name="country">the country entered</param>
         /// <returns></returns>
-        public async Task<CountryDataObject> GetCovid19DataForCountry(string country)
+        public async Task<List<CountryResults>> GetCovid19DataForCountry(string country)
         {
             string route = "country_region";
 
@@ -31,12 +31,21 @@ namespace COVID19WebApp.Models.Services
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var response = await client.GetStringAsync($"{baseUrl}/{route}");
+
             
-            CountryDataObject countryResults = JsonConvert.DeserializeObject<CountryDataObject>(response);
+            CountryDataObject allResults = JsonConvert.DeserializeObject<CountryDataObject>(response);
 
-            CountryDataObject queryObject = countryResults.Where(x => x.country_region == country);
+            //CountryDataObject queryObject = countryResults.Where(x => x.country_region == country);
 
-            return queryObject;
+            var queryObject = allResults.CountryResults.Where(c => c.CountryRegion == country); 
+
+            //var queryObject = from c in allResults.CountryResults
+            //                  where country == c.CountryRegion
+            //                  select c;
+            //{ c.country_region, country.confirmed, country.deaths, country.recovered, country.last_updated };
+
+
+            return queryObject.ToList();
 
             
         }
