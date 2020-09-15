@@ -34,6 +34,7 @@ namespace COVID19WebApp.Controllers
         public async Task<IActionResult> Results(string country)
         {
             List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
+            string test;       
 
             return View(results);
             //try
@@ -45,7 +46,6 @@ namespace COVID19WebApp.Controllers
             //{
             //    return View();
             //}
-                
         }
 
         public IActionResult Privacy()
