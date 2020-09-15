@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using COVID19WebApp.Models;
 using COVID19WebApp.Models.Interfaces;
 
+
 namespace COVID19WebApp.Controllers
 {
     public class HomeController : Controller
@@ -22,17 +23,29 @@ namespace COVID19WebApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            WorldDataObject result = await _covid19.GetCovid19WorldData();
+            return View(result);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Index(DataObject rows)
+        public async Task<IActionResult> Results(string country)
         {
-            DataObject result = await _covid19.GetCovid19WorldData();
-            return View(result);
+            List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
+            string test;       
+
+            return View(results);
+            //try
+            //{
+            //    return RedirectToAction(nameof(Index));
+            //    //return RedirectToAction(nameof(Index));
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,30 @@
+﻿@model List<COVID19WebApp.Models.CountryResults>
+
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1>Results</h1>
+
+<div>
+    <p>Country Results</p>
+    @foreach (var result in Model)
+    {
+        <p>country name:@result.CountryRegion</p>
+        <p>confirmed total cases:@result.Confirmed</p>
+        <p>confirmed deaths: @result.Deaths</p>
+        <p>confirmed recovered: @result.Recovered</p>
+        <p>last updated: @Convert.ToDateTime(result.Last_Updated)</p>
+    }
+</div>
+
+@*<div>
+    <p>Country Results</p>
+
+    @foreach(var row in Model.Rows)
+    {
+        <p>country:@row.Country</p>
+        <p>total_cases:@row.TotalCases</p>
+    }
+
+</div>*@
