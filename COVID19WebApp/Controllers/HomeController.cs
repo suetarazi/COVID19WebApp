@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using COVID19WebApp.Models;
 using COVID19WebApp.Models.Interfaces;
-
+using COVID19WebApp.ViewModels;
 
 namespace COVID19WebApp.Controllers
 {
@@ -35,18 +35,18 @@ namespace COVID19WebApp.Controllers
         {
             List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
 
+            WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
+            //{
+            //    world = WorldDataObject,
+            //    CountryDataObject = CountryResults,
+            //    Country = CountryResults.CountryResults.CountryRegion,
+            //};
+
             return View(results);
-            //try
-            //{
-            //    return RedirectToAction(nameof(Index));
-            //    //return RedirectToAction(nameof(Index));
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
-                
+            //return View(worldAndCountryViewModel(results));
         }
+
+
 
         public IActionResult Privacy()
         {
@@ -58,5 +58,11 @@ namespace COVID19WebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        
+
     }
 }
+       
+

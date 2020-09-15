@@ -1,4 +1,4 @@
-﻿@model COVID19WebApp.Models.WorldDataObject
+﻿@model COVID19WebApp.ViewModels.WorldAndCountryViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -24,7 +24,7 @@
 
 <div>
 <p>World Results</p>
-    @foreach (var result in Model.Results)
+    @foreach (var result in Model.world.Results)
     {
     <p>total_cases:@result.Confirmed</p>
     <p>total_deaths:@result.Deaths</p>
@@ -37,8 +37,8 @@
 <section id="CountryInfo">
     <h3>Get COVID-19 for a specific country</h3>
     <form asp-action="Results" asp-controller="Home" method="post">
-        @*<label asp-for="CountryResults.country">Country Name</label>
-        <input asp-for="country" />*@
+        <label asp-for="@Model.Country">Country Name</label>
+        <input asp-for="@Model.Country" />
         <button type="submit">Get Country Data</button>
 
     </form>
