@@ -37,6 +37,7 @@ namespace COVID19WebApp
             //    .AddNewtonsoftJson(Options =>
             //    Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+    
             //mappings
             services.AddTransient<ICovid19Data, Covid19DataService>();
         
