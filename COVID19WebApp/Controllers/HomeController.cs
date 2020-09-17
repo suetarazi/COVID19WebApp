@@ -22,47 +22,52 @@ namespace COVID19WebApp.Controllers
             _covid19 = covid19;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            WorldDataObject result = await _covid19.GetCovid19WorldData();
-            WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
-
-            
-            return View(result);
+            return View();
         }
+
+        //[HttpGet]
+        //public async Task<IActionResult> Index()
+        //{
+        //    WorldDataObject result = await _covid19.GetCovid19WorldData();
+        //    //WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
+
+
+        //    return View(result);
+        //}
 
 
         [HttpPost]
-        public async Task<IActionResult> Results(string country)
+        public ActionResult Results(string country)
         {
-            List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
-            string test;       
+            //List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
+            //string test;
 
-            WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
+            //WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
             //{
 
-            //    world = WorldDataObject,
-            //    CountryDataObject = CountryResults,
-            //    Country = CountryResults.CountryResults.CountryRegion,
-            //};
+                //    world = WorldDataObject,
+                //    CountryDataObject = CountryResults,
+                //    Country = CountryResults.CountryResults.CountryRegion,
+                //};
 
-            return View(results);
-            //return View(worldAndCountryViewModel(results));
+                return View(country);
+            //    //return View(worldAndCountryViewModel(results));
 
-            //    return RedirectToAction(nameof(Index));
-            //    //return RedirectToAction(nameof(Index));
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
+            //    //    return RedirectToAction(nameof(Index));
+            //    //    //return RedirectToAction(nameof(Index));
+            //    //}
+            //    //catch
+            //    //{
+            //    //    return View();
+            //    //}
 
-        }
+            }
 
 
 
-        public IActionResult Privacy()
+            public IActionResult Privacy()
         {
             return View();
         }

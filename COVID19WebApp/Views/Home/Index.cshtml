@@ -23,17 +23,18 @@
 
 <div>
     <p>World Results</p>
-    @foreach (var result in Model.world.Results)
+    @foreach (var result in Model.worldData.Results)
     {
-    <p>total_cases:@result.Confirmed</p>
-    <p>total_deaths:@result.Deaths</p>
-    <p>total_recovered:@result.Recovered</p>
+        <p>total_cases:@result.Confirmed</p>
+        <p>total_deaths:@result.Deaths</p>
+        <p>total_recovered:@result.Recovered</p>
     }
-    <p>Last Updated: @Convert.ToDateTime.ToLongTimeString(Model.Last_Updated)</p>
+    <p>Last Updated: @Convert.ToDateTime(Model.worldData.Last_Updated)</p>
+    @*ToLongTimeString*@
 
 </div>
 
-<section id="CountryInfo">
+@*<section id="CountryInfo">
     <h3>Get COVID-19 for a specific country</h3>
     <form asp-action="Results" asp-controller="Home" method="post">
         <label asp-for="@Model.Country">Country Name</label>
@@ -41,5 +42,5 @@
         <button type="submit">Get Country Data</button>
 
     </form>
-</section>
+</section>*@
 
