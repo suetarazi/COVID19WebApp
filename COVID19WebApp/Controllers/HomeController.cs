@@ -37,9 +37,11 @@ namespace COVID19WebApp.Controllers
         public async Task<IActionResult> Results(string country)
         {
             List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
+            string test;       
 
             WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
             //{
+
             //    world = WorldDataObject,
             //    CountryDataObject = CountryResults,
             //    Country = CountryResults.CountryResults.CountryRegion,
@@ -47,6 +49,15 @@ namespace COVID19WebApp.Controllers
 
             return View(results);
             //return View(worldAndCountryViewModel(results));
+
+            //    return RedirectToAction(nameof(Index));
+            //    //return RedirectToAction(nameof(Index));
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
+
         }
 
 
