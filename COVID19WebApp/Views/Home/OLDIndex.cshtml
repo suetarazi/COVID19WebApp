@@ -1,6 +1,7 @@
-﻿@page
-@model COVID19WebApp.Views.Home.IndexModel
+﻿@model COVID19WebApp.ViewModels.WorldAndCountryViewModel
+
 @{
+    ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
@@ -13,7 +14,7 @@
 <br />
 <div>
     <h2>Novel coronavirus</h2>
-    <img id="heroImage" src="https://lh3.googleusercontent.com/M6BeDcz7AtsH9e8XATewMG5CbY7tW5x4o4eONolbFueTXC-Oq5maV9HloXBkzC-KGbu8hQ=s163" width="960" />
+    <img id="heroImage" src="https://lh3.googleusercontent.com/M6BeDcz7AtsH9e8XATewMG5CbY7tW5x4o4eONolbFueTXC-Oq5maV9HloXBkzC-KGbu8hQ=s163" width="960"/>
     <p>
         Novel coronavirus (COVID-19) is a virus that is affecting the entire world community!
 
@@ -22,14 +23,14 @@
 </div>
 
 <div>
-    <p>World Results</p>
+<p>World Results</p>
     @foreach (var result in Model.world.Results)
     {
     <p>total_cases:@result.Confirmed</p>
     <p>total_deaths:@result.Deaths</p>
     <p>total_recovered:@result.Recovered</p>
     }
-    <p>Last Updated: @Convert.ToDateTime.ToLongTimeString(Model.Last_Updated)</p>
+    @*<p>Last Updated: @Convert.ToDateTime(Model.Last_Updated)</p>*@
 
 </div>
 
@@ -43,3 +44,12 @@
     </form>
 </section>
 
+<div>
+    @*@foreach(string s in Covid19Results)
+    {
+        <p>
+            @Covid19Results;
+        </p>
+    }*@
+
+</div>

@@ -37,6 +37,9 @@ namespace COVID19WebApp
             //    .AddNewtonsoftJson(Options =>
             //    Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+            //Add AWS Services here if needed:
+            //services.AddAWSService<IAmazon...>();
+
             //mappings
             services.AddTransient<ICovid19Data, Covid19DataService>();
         
