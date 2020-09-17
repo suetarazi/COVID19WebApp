@@ -26,6 +26,9 @@ namespace COVID19WebApp.Controllers
         public async Task<IActionResult> Index()
         {
             WorldDataObject result = await _covid19.GetCovid19WorldData();
+            WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
+
+            
             return View(result);
         }
 
