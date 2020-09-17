@@ -31,7 +31,9 @@ namespace COVID19WebApp
             services.AddControllersWithViews();
             
             //library dependency for MVC
-            services.AddMvc();
+            //services.AddMvc();
+            //razor pages dependency; which uses MVC under the hood, so no need to include both!
+            services.AddRazorPages();
 
             //services.AddControllers()
             //    .AddNewtonsoftJson(Options =>
@@ -67,6 +69,7 @@ namespace COVID19WebApp
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
