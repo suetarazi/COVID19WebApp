@@ -9,16 +9,16 @@ using COVID19WebApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace COVID19WebApp.Views.Home
+namespace COVID19WebApp.Pages.Home   
 {
     public class IndexModel : PageModel
     {
         //dependency injection
-        private WorldDataObject _world;
+        //private WorldDataObject _world;
 
-        private CountryDataObject _countryDataObject;
+        //private CountryDataObject _countryDataObject;
 
-        private CountryResults _countryResults;
+        //private CountryResults _countryResults;
 
         private ICovid19Data _covid19;
 
@@ -27,29 +27,31 @@ namespace COVID19WebApp.Views.Home
         public WorldDataObject worldData { get; set; }
 
         public List<CountryResults> countryData { get; set; }
-        public void RegisterModel(WorldDataObject world, CountryDataObject countryDataObject, CountryResults _countryResults, ICovid19Data covid19)
+
+        //WorldDataObject world, CountryDataObject countryDataObject, CountryResults _countryResults,
+        public IndexModel(ICovid19Data covid19)
         {
-            _world = world;
-            _countryDataObject = countryDataObject;
+        //    _world = world;
+          //  _countryDataObject = countryDataObject;
             _covid19 = covid19;
-            _countryResults = countryResults;
+         //   _countryResults = countryResults;
         }
 
-        public async Task<IActionResult> OnGet()
+        public async Task OnGet()
         {
             //WorldDataObject result = await _covid19.GetCovid19WorldData();
             worldData = await _covid19.GetCovid19WorldData();
 
-            return Page();
+            
         }
 
 
-        public async List<CountryResults> OnPost(string country)
-        {
+        //public async List<CountryResults> OnPost(string country)
+        //{
 
-            List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
-            //return RedirectToAction(Action, Controller, country);
-            return RedirectToAction("/Home/Results", countryData);
-        }
+        //    List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
+        //    return RedirectToAction(Action, Controller, country);
+        //    return RedirectToAction("/Home/Results", countryData);
+        //}
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using COVID19WebApp.Models;
 using COVID19WebApp.Models.Interfaces;
 using COVID19WebApp.ViewModels;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace COVID19WebApp.Controllers
 {
