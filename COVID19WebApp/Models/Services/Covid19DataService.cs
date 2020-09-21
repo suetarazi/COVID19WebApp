@@ -1,4 +1,6 @@
 ﻿using COVID19WebApp.Models.Interfaces;
+using COVID19WebApp.ViewModels;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -55,7 +57,7 @@ namespace COVID19WebApp.Models.Services
         /// </summary>
         /// <param name="country"></param>
         /// <returns></returns>
-        public async Task<WorldDataObject> GetCovid19WorldData()
+        public async Task<Root> GetCovid19WorldData()
         {
             string route = "cdr";
 
@@ -65,10 +67,11 @@ namespace COVID19WebApp.Models.Services
 
             var response = await client.GetStringAsync($"{baseUrl}/{route}");
 
-            WorldDataObject results = JsonConvert.DeserializeObject<WorldDataObject>(response);
+            Root results = JsonConvert.DeserializeObject<Root>(response);
 
             return results;
         }
 
+        
     }
 }

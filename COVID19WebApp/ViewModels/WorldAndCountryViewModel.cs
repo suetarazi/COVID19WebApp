@@ -15,8 +15,22 @@ namespace COVID19WebApp.ViewModels
 
         public string Country { get; set; }
 
+    }
+        public class Result
+        {
+            public int confirmed { get; set; }
+            public int? deaths { get; set; }
+            public int? recovered { get; set; }
+        }
+
+        public class Root
+        {
+            public List<Result> results { get; set; }
+            public long last_updated { get; set; }
+        }
+
         //public WorldResults[] Results { get; set; }
 
         //public string Last_Updated { get; set; }
-    }
+
 }

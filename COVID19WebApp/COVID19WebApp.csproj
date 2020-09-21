@@ -9,4 +9,8 @@
     <PackageReference Include="NewtonSoft.Json" Version="12.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Home\" />
+  </ItemGroup>
+
 </Project>
