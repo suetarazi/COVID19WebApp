@@ -26,7 +26,11 @@ namespace COVID19WebApp.Pages.Home
         //public WorldAndCountryViewModel AllData { get; set; }
         public WorldDataObject worldData { get; set; }
 
+        //[BindProperty]
         public List<CountryResults> countryData { get; set; }
+
+        [BindProperty]
+        public string Country { get; set; }
 
         //WorldDataObject world, CountryDataObject countryDataObject, CountryResults _countryResults,
         public IndexModel(ICovid19Data covid19)
@@ -40,18 +44,25 @@ namespace COVID19WebApp.Pages.Home
         public async Task OnGet()
         {
             //WorldDataObject result = await _covid19.GetCovid19WorldData();
-            worldData = await _covid19.GetCovid19WorldData();
+            //worldData = await _covid19.GetCovid19WorldData();
+            var candy = await _covid19.GetCovid19WorldData();
+            worldData = new WorldDataObject();
 
-            
+            worldData.Results = new WorldResults[1];
+            worldData.Results[0] = new WorldResults();
+            worldData.Results[0].Confirmed = candy.results[0].confirmed.ToString();
+            worldData.Results[0].Deaths = candy.results[1].deaths.ToString();
+            worldData.Results[0].Recovered = candy.results[2].recovered.ToString();
+
         }
 
 
-        //public async List<CountryResults> OnPost(string country)
-        //{
+        public async Task<IActionResult> OnPost(string country)
+        {
 
-        //    List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
-        //    return RedirectToAction(Action, Controller, country);
-        //    return RedirectToAction("/Home/Results", countryData);
-        //}
+            List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
+            return RedirectToPage("Results/Results", countryData);
+            
+        }
     }
 }
