@@ -36,9 +36,11 @@
 
 <section id="CountryInfo">
     <h3>Get COVID-19 for a specific country</h3>
-    <form method="post">
+    <form method="post" asp-page-handler="Index">
+        @*<div asp-validation-summary="All"></div>*@
         <label asp-for="@Model.Country">Country Name</label>
         <input asp-for="@Model.Country" />
+        <span asp-validation-for="@Model.Country"></span>
         <button type="submit">Get Country Data</button>
 
     </form>

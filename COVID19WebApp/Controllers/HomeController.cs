@@ -39,9 +39,9 @@ namespace COVID19WebApp.Controllers
         //}
 
 
-        [HttpPost]
-        public ActionResult Results(string country)
-        {
+        ////[HttpPost]
+        ////public ActionResult Results(string country)
+        ////{
             //List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
             //string test;
 
@@ -53,7 +53,7 @@ namespace COVID19WebApp.Controllers
                 //    Country = CountryResults.CountryResults.CountryRegion,
                 //};
 
-                return View(country);
+          ////      return View(country);
             //    //return View(worldAndCountryViewModel(results));
 
             //    //    return RedirectToAction(nameof(Index));
@@ -64,7 +64,7 @@ namespace COVID19WebApp.Controllers
             //    //    return View();
             //    //}
 
-            }
+            ////}
 
 
 
