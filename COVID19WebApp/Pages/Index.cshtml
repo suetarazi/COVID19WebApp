@@ -1,19 +1,21 @@
 ﻿@page
 @model COVID19WebApp.Pages.Home.IndexModel
 @{
+    Layout = "_Layout";
+    <link rel="stylesheet" href="~/css/site.css" />
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    <h1 class="display-4">COVID-19 Pandemic World and Country Data</h1>
+    
     <h1>UNDER CONSTRUCTION!!!</h1>
-    <h1>This is a COVID-19 Web App that integrates with an external API that provides world and country pandemic data.</h1>
+    <br />
+    <p>This is a coronavirus-19 (COVID-19) app that integrates with an external API that provides current world and country pandemic data.</p>
+    <br />
 </div>
-<br />
-<br />
 <div>
     <h2>Novel coronavirus</h2>
-    <img id="heroImage" src="https://lh3.googleusercontent.com/M6BeDcz7AtsH9e8XATewMG5CbY7tW5x4o4eONolbFueTXC-Oq5maV9HloXBkzC-KGbu8hQ=s163" width="960" />
     <p>
         Novel coronavirus (COVID-19) is a virus that is affecting the entire world community!
 
@@ -21,13 +23,13 @@
     <p> This website gathers information and statistics about COVID-19 using the Corona-Virus-Stats API</p>
 </div>
 
-<div>
-    <p>World Results</p>
+<div id="worldResults" text-align="center">
+    <h3>World Results:</h3>
     @foreach (var result in Model.worldData.Results)
     {
-        <p>total_cases:@result.Confirmed</p>
-        <p>total_deaths:@result.Deaths</p>
-        <p>total_recovered:@result.Recovered</p>
+        <p>Total Cases: @result.Confirmed</p>
+        <p>Total Deaths: @result.Deaths</p>
+        <p>Total Recovered: @result.Recovered</p>
     }
     @*<p>Last Updated: @Convert.ToDateTime(Model.worldData.Last_Updated)</p>*@
     @*ToLongTimeString*@
@@ -35,10 +37,14 @@
 </div>
 
 <section id="CountryInfo">
-    <h3>Get COVID-19 for a specific country</h3>
-    <form method="post">
+    <h3>Get COVID-19 data for a specific country by entering the country name below.</h3> 
+    <p>Please capitalize the first letter of the country name (ex. Italy) and enter USA for the United States.</p>
+    @*asp-controller="Home" asp-action="Results"*@
+    <form method="post" asp-page-handler="Index">
+        @*<div asp-validation-summary="All"></div>*@
         <label asp-for="@Model.Country">Country Name</label>
         <input asp-for="@Model.Country" />
+        <span asp-validation-for="@Model.Country"></span>
         <button type="submit">Get Country Data</button>
 
     </form>

@@ -59,10 +59,15 @@ namespace COVID19WebApp.Pages.Home
 
         public async Task<IActionResult> OnPost(string country)
         {
-
-            List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
-            return RedirectToPage("Results/Results", countryData);
-            
+            if (!ModelState.IsValid)
+            {
+                List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
+                return RedirectToAction("/Results/Results", countryData);
+            }
+            else
+            {
+                return Page();
+            }
         }
     }
 }
