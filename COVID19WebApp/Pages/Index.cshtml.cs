@@ -8,18 +8,14 @@ using COVID19WebApp.Models.Interfaces;
 using COVID19WebApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
 
 namespace COVID19WebApp.Pages.Home   
 {
     public class IndexModel : PageModel
     {
         //dependency injection
-        //private WorldDataObject _world;
-
-        //private CountryDataObject _countryDataObject;
-
-        //private CountryResults _countryResults;
-
+     
         private ICovid19Data _covid19;
 
         [BindProperty]
@@ -29,8 +25,11 @@ namespace COVID19WebApp.Pages.Home
         //[BindProperty]
         public List<CountryResults> countryData { get; set; }
 
+
         [BindProperty]
         public string Country { get; set; }
+
+        //public string country => (string)TempData[nameof(country)];
 
         //WorldDataObject world, CountryDataObject countryDataObject, CountryResults _countryResults,
         public IndexModel(ICovid19Data covid19)
@@ -43,8 +42,7 @@ namespace COVID19WebApp.Pages.Home
 
         public async Task OnGet()
         {
-            //WorldDataObject result = await _covid19.GetCovid19WorldData();
-            //worldData = await _covid19.GetCovid19WorldData();
+            
             var candy = await _covid19.GetCovid19WorldData();
             worldData = new WorldDataObject();
 
@@ -57,10 +55,14 @@ namespace COVID19WebApp.Pages.Home
         }
 
 
-        public async Task<IActionResult> OnPost(string country)
+        public async Task<IActionResult> OnPostAsync([FromForm]string country)
+        //public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                //TempData["country"] = country;
+                //Country = Request.Form[nameof(Country)];
+                //List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(Country);
                 List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
                 return RedirectToAction("/Results/Results", countryData);
             }
