@@ -4,5 +4,17 @@
 
 This is a full stack C#, HTML5, CSS/Bootstrap web app that connects to an external API providing world and country COVID-19 data
 
+---------------------------
+
+### World Results:
+* Total Cases
+* Total Deaths
+* Total Recovered
+
+### Country Results:
+* Country Name
+* Confirmed Total Cases
+* Confirmed Deaths
+* Confirmed Recovered
  
 
