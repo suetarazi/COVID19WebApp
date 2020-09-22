@@ -73,3 +73,7 @@ body {
 #heroImage {
     width: 100vw;
 }
+
+#worldResults {
+    text-align: center;
+}

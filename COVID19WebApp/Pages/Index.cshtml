@@ -1,0 +1,52 @@
+﻿@page
+@model COVID19WebApp.Pages.Home.IndexModel
+@{
+    Layout = "_Layout";
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<div class="text-center">
+    
+    <h1 class="display-4">COVID-19 Pandemic World and Country Data</h1>
+    
+    <h1>UNDER CONSTRUCTION!!!</h1>
+    <br />
+    <p>This is a coronavirus-19 (COVID-19) app that integrates with an external API that provides current world and country pandemic data.</p>
+    <br />
+</div>
+<div>
+    <h2>Novel coronavirus</h2>
+    <p>
+        Novel coronavirus (COVID-19) is a virus that is affecting the entire world community!
+
+    </p>
+    <p> This website gathers information and statistics about COVID-19 using the Corona-Virus-Stats API</p>
+</div>
+
+<div id="worldResults" text-align="center">
+    <h3>World Results:</h3>
+    @foreach (var result in Model.worldData.Results)
+    {
+        <p>Total Cases: @result.Confirmed</p>
+        <p>Total Deaths: @result.Deaths</p>
+        <p>Total Recovered: @result.Recovered</p>
+    }
+    @*<p>Last Updated: @Convert.ToDateTime(Model.worldData.Last_Updated)</p>*@
+    @*ToLongTimeString*@
+
+</div>
+
+<section id="CountryInfo">
+    <h3>Get COVID-19 data for a specific country by entering the country name below.</h3> 
+    <p>Please capitalize the first letter of the country name (ex. Italy) and enter USA for the United States.</p>
+    @*asp-controller="Home" asp-action="Results"*@
+    <form method="post" asp-page-handler="Index">
+        @*<div asp-validation-summary="All"></div>*@
+        <label asp-for="@Model.Country">Country Name</label>
+        <input asp-for="@Model.Country" />
+        <span asp-validation-for="@Model.Country"></span>
+        <button type="submit">Get Country Data</button>
+
+    </form>
+</section>
+

@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using COVID19WebApp.Models;
 using COVID19WebApp.Models.Interfaces;
-
+using COVID19WebApp.ViewModels;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace COVID19WebApp.Controllers
 {
@@ -22,33 +23,52 @@ namespace COVID19WebApp.Controllers
             _covid19 = covid19;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            WorldDataObject result = await _covid19.GetCovid19WorldData();
-            return View(result);
+            return View();
         }
 
+        //[HttpGet]
+        //public async Task<IActionResult> Index()
+        //{
+        //    WorldDataObject result = await _covid19.GetCovid19WorldData();
+        //    //WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
 
-        [HttpPost]
-        public async Task<IActionResult> Results(string country)
-        {
-            List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
 
-            return View(results);
-            //try
+        //    return View(result);
+        //}
+
+
+        ////[HttpPost]
+        ////public ActionResult Results(string country)
+        ////{
+            //List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
+            //string test;
+
+            //WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
             //{
-            //    return RedirectToAction(nameof(Index));
-            //    //return RedirectToAction(nameof(Index));
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
-                
-        }
 
-        public IActionResult Privacy()
+                //    world = WorldDataObject,
+                //    CountryDataObject = CountryResults,
+                //    Country = CountryResults.CountryResults.CountryRegion,
+                //};
+
+          ////      return View(country);
+            //    //return View(worldAndCountryViewModel(results));
+
+            //    //    return RedirectToAction(nameof(Index));
+            //    //    //return RedirectToAction(nameof(Index));
+            //    //}
+            //    //catch
+            //    //{
+            //    //    return View();
+            //    //}
+
+            ////}
+
+
+
+            public IActionResult Privacy()
         {
             return View();
         }
@@ -58,5 +78,11 @@ namespace COVID19WebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        
+
     }
 }
+       
+
