@@ -1,4 +1,5 @@
 ﻿@page
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 @model COVID19WebApp.Pages.Home.IndexModel
 @{
     Layout = "_Layout";
@@ -6,10 +7,9 @@
 }
 
 <div class="text-center">
-    
+@*@addTagHelper *,Covid19WebApp.TagHelpers*@
+
     <h1 class="display-4">COVID-19 Pandemic World and Country Data</h1>
-    
-    <h1>UNDER CONSTRUCTION!!!</h1>
     <br />
     <p>This is a coronavirus-19 (COVID-19) app that integrates with an external API that provides current world and country pandemic data.</p>
     <br />
@@ -37,16 +37,25 @@
 </div>
 
 <section id="CountryInfo">
-    <h3>Get COVID-19 data for a specific country by entering the country name below.</h3> 
+    <h3>Get COVID-19 data for a specific country by entering the country name below.</h3>
     <p>Please capitalize the first letter of the country name (ex. Italy) and enter USA for the United States.</p>
+    <form method="post" asp-page="/Results/Results">
+        <div>
+            <label asp-for="@Model.Country">Country Name</label>
+            <input asp-for="@Model.Country" />
+        </div>
+        <button type="submit">Get Country Data</button>
+    </form>
+
+
     @*asp-controller="Home" asp-action="Results"*@
-    <form method="post" asp-page-handler="Index">
-        @*<div asp-validation-summary="All"></div>*@
-        <label asp-for="@Model.Country">Country Name</label>
+    <!--<form method="post" asp-page-handler="Index">-->
+    @*<div asp-validation-summary="All"></div>*@
+    <!--<label asp-for="@Model.Country">Country Name</label>
         <input asp-for="@Model.Country" />
         <span asp-validation-for="@Model.Country"></span>
         <button type="submit">Get Country Data</button>
 
-    </form>
+    </form>-->
 </section>
 
