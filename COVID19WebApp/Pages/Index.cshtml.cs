@@ -31,13 +31,10 @@ namespace COVID19WebApp.Pages.Home
 
         //public string country => (string)TempData[nameof(country)];
 
-        //WorldDataObject world, CountryDataObject countryDataObject, CountryResults _countryResults,
         public IndexModel(ICovid19Data covid19)
         {
-        //    _world = world;
-          //  _countryDataObject = countryDataObject;
             _covid19 = covid19;
-         //   _countryResults = countryResults;
+        
         }
 
         public async Task OnGet()
@@ -55,21 +52,21 @@ namespace COVID19WebApp.Pages.Home
         }
 
 
-        public async Task<IActionResult> OnPostAsync([FromForm]string country)
+        //public async Task<IActionResult> OnPostAsync([FromForm]string country)
         //public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-            {
-                //TempData["country"] = country;
-                //Country = Request.Form[nameof(Country)];
-                //List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(Country);
-                List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
-                return RedirectToAction("/Results/Results", countryData);
-            }
-            else
-            {
-                return Page();
-            }
-        }
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        TempData["country"] = country;
+        //        Country = Request.Form[nameof(Country)];
+        //        List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(Country);
+        //        List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
+        //        return RedirectToAction("/Results/Results", countryData);
+        //    }
+        //    else
+        //    {
+        //        return Page();
+        //    }
+        //}
     }
 }

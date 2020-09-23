@@ -1,5 +1,7 @@
 ﻿@page
-@model List<COVID19WebApp.Pages.Results.ResultsModel>
+@model COVID19WebApp.Pages.Results.ResultsModel
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
 @{
     Layout = "_Layout";
     <link rel="stylesheet" href="~/css/site.css" />
@@ -9,12 +11,12 @@
 
 <div>
     <p>Country Results:</p>
-    @*@foreach (var result in Model)
-    {
-        <p>Country Name: @result.countryData.CountryResults.CountryRegion</p>
-        <p>Confirmed Total Cases: @result.Confirmed</p>
-        <p>Confirmed Deaths: @result.Deaths</p>
-        <p>Confirmed Recovered: @result.Recovered</p>
-        <p>Last Updated: @Convert.ToDateTime(result.Last_Updated)</p>
-    }*@
+    @foreach (var result in Model.countryData.CountryResults)
+        {
+            <p>Country Name: @result.CountryRegion</p>
+            <p>Confirmed Total Cases: @result.Confirmed</p>
+            <p>Confirmed Deaths: @result.Deaths</p>
+            <p>Confirmed Recovered: @result.Recovered</p>
+            <p>Last Updated: @Convert.ToDateTime(result.Last_Updated)</p>
+        }
 </div>

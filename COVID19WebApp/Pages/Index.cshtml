@@ -39,7 +39,7 @@
 <section id="CountryInfo">
     <h3>Get COVID-19 data for a specific country by entering the country name below.</h3>
     <p>Please capitalize the first letter of the country name (ex. Italy) and enter USA for the United States.</p>
-    <form method="post" asp-page="Index">
+    <form method="post" asp-page="/Results/Results">
         <div>
             <label asp-for="@Model.Country">Country Name</label>
             <input asp-for="@Model.Country" />
