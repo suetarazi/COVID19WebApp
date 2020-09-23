@@ -28,47 +28,13 @@ namespace COVID19WebApp.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Index()
-        //{
-        //    WorldDataObject result = await _covid19.GetCovid19WorldData();
-        //    //WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
+        public IActionResult Results()
+        {
+            return View();
+        }
 
 
-        //    return View(result);
-        //}
-
-
-        ////[HttpPost]
-        ////public ActionResult Results(string country)
-        ////{
-            //List<CountryResults> results = await _covid19.GetCovid19DataForCountry(country);
-            //string test;
-
-            //WorldAndCountryViewModel worldAndCountryViewModel = new WorldAndCountryViewModel();
-            //{
-
-                //    world = WorldDataObject,
-                //    CountryDataObject = CountryResults,
-                //    Country = CountryResults.CountryResults.CountryRegion,
-                //};
-
-          ////      return View(country);
-            //    //return View(worldAndCountryViewModel(results));
-
-            //    //    return RedirectToAction(nameof(Index));
-            //    //    //return RedirectToAction(nameof(Index));
-            //    //}
-            //    //catch
-            //    //{
-            //    //    return View();
-            //    //}
-
-            ////}
-
-
-
-            public IActionResult Privacy()
+        public IActionResult Privacy()
         {
             return View();
         }

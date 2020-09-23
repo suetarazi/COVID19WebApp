@@ -33,7 +33,7 @@ namespace COVID19WebApp.Pages.Results
         
         }
 
-        public async void OnPost()
+        public async Task<IActionResult> OnPost()
         //public async Task<IActionResult> OnPostAsync()
         {
             countryData = new CountryDataObject();
@@ -45,8 +45,8 @@ namespace COVID19WebApp.Pages.Results
             var apiData = await _covid19.GetCovid19DataForCountry(Country);
             //apiData.ToList<string>();
             countryData.CountryResults = apiData;
-            
 
+            return Page();
             //return RedirectToAction("/Results/Results", countryData);
             
             
