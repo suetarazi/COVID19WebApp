@@ -39,10 +39,10 @@ namespace COVID19WebApp.Pages.Results
             countryData = new CountryDataObject();
             CountryResults = new List<CountryResults>();
 
-            if (!ModelState.IsValid)
+            var apiData = await _covid19.GetCovid19DataForCountry(Country);
+        
+            if (apiData != null)
             {
-
-                var apiData = await _covid19.GetCovid19DataForCountry(Country);
 
                 countryData.CountryResults = apiData;
 
