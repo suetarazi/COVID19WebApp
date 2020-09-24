@@ -38,16 +38,25 @@ namespace COVID19WebApp.Pages.Results
         {
             countryData = new CountryDataObject();
             CountryResults = new List<CountryResults>();
-            
-            //TempData["country"] = country;
-            //Country = Request.Form[nameof(Country)];
-            //List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(Country);
-            var apiData = await _covid19.GetCovid19DataForCountry(Country);
-            //apiData.ToList<string>();
-            countryData.CountryResults = apiData;
 
-            return Page();
-            //return RedirectToAction("/Results/Results", countryData);
+            try { 
+            var apiData = await _covid19.GetCovid19DataForCountry(Country);
+        
+            //if (apiData != null)
+            //{
+
+                countryData.CountryResults = apiData;
+
+                return Page();
+            }
+
+            catch
+            //else
+            {
+                //Note: This redirects to /Views/Home/Results.cs which is just a RazorView and NOT the RazorPage Results.cs
+                return RedirectToAction("Results");
+            }
+
             
             
         }
