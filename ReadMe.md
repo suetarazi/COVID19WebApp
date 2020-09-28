@@ -84,15 +84,6 @@ COVID-19 Data for a given country is given based on the country entered by the u
 ![Privacy Data](https://i.imgur.com/FAMeCnB.png)
 
 ---
-## Data Flow (Frontend, Backend, REST API)
-***[Add a clean and clear explanation of what the data flow is. Walk me through it.]***
-![Data Flow Diagram](/assets/img/Flowchart.png)
-
----
-## Data Model
-
-
----
 
 ## Change Log
 1.1: *Original API was taken down by its owner. Changed to a working API  
