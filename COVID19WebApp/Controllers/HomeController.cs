@@ -9,23 +9,34 @@ using COVID19WebApp.Models;
 using COVID19WebApp.Models.Interfaces;
 using COVID19WebApp.ViewModels;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.Design;
 
 namespace COVID19WebApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ICovid19Data _covid19;
+        private readonly ISortingHat _sortingHat;
 
-        public HomeController(ILogger<HomeController> logger, ICovid19Data covid19)
+        public HomeController(ILogger<HomeController> logger, ISortingHat sortingHat)
         {
             _logger = logger;
-            _covid19 = covid19;
+            _sortingHat = sortingHat;
         }
+
+        public SortingHat HouseName { get; set; }
 
         public IActionResult Index()
         {
             return View();
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            HouseName = await _sortingHat.SortingHatOutcome();
+            return View(HouseName);
         }
 
         public IActionResult Results()
