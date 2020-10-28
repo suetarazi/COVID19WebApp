@@ -6,7 +6,7 @@
 
 ---
 ## Web Application
-This is a full stack C#, HTML5, CSS/Bootstrap web application that consumes to an external API providing world and country COVID-19 data. The application was written using ASP.NET Core and Entity Framework. The app follows MVC architecture and also utilizes Razor Pages and ASP Helper Tags. The application is deployed to AWS Elastic Beanstalk.
+This is a full stack C#, HTML5, CSS/Bootstrap web application that consumes an external API providing world and country COVID-19 data. The application was written using ASP.NET Core and Entity Framework. The app follows MVC architecture and also utilizes Razor Pages and ASP Helper Tags. The application is deployed to AWS Elastic Beanstalk.
 
 --------------------------- 
 
