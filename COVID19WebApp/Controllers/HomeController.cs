@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using COVID19WebApp.Models;
-using COVID19WebApp.Models.Interfaces;
-using COVID19WebApp.ViewModels;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.Design;
 
 namespace COVID19WebApp.Controllers
 {

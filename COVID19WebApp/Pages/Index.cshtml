@@ -7,7 +7,6 @@
 }
 
 <div class="text-center">
-@*@addTagHelper *,Covid19WebApp.TagHelpers*@
 
     <h1 class="display-4">COVID-19 Pandemic World and Country Data</h1>
     <br />
@@ -31,8 +30,6 @@
         <p>Total Deaths: @result.Deaths</p>
         <p>Total Recovered: @result.Recovered</p>
     }
-    @*<p>Last Updated: @Convert.ToDateTime(Model.worldData.Last_Updated)</p>*@
-    @*ToLongTimeString*@
 
 </div>
 
@@ -48,14 +45,5 @@
     </form>
 
 
-    @*asp-controller="Home" asp-action="Results"*@
-    <!--<form method="post" asp-page-handler="Index">-->
-    @*<div asp-validation-summary="All"></div>*@
-    <!--<label asp-for="@Model.Country">Country Name</label>
-        <input asp-for="@Model.Country" />
-        <span asp-validation-for="@Model.Country"></span>
-        <button type="submit">Get Country Data</button>
-
-    </form>-->
 </section>
 

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using COVID19WebApp.ViewModels;
 
 namespace COVID19WebApp.ViewModels
 {
@@ -16,7 +15,7 @@ namespace COVID19WebApp.ViewModels
         public string Country { get; set; }
 
     }
-        public class Result
+    public class Result
         {
             public int confirmed { get; set; }
             public int? deaths { get; set; }
@@ -32,5 +31,5 @@ namespace COVID19WebApp.ViewModels
         //public WorldResults[] Results { get; set; }
 
         //public string Last_Updated { get; set; }
-
+    
 }

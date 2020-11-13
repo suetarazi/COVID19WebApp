@@ -1,12 +1,10 @@
 ﻿using COVID19WebApp.Models.Interfaces;
 using COVID19WebApp.ViewModels;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace COVID19WebApp.Models.Services
