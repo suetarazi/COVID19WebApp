@@ -40,7 +40,7 @@ namespace COVID19WebApp.Models
 
         [JsonPropertyName("flag")]
         public string Flag { get; set; }
-        
-        
+
+
     }
 }
