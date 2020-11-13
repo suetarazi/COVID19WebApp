@@ -16,27 +16,16 @@ namespace COVID19WebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ISortingHat _sortingHat;
-
-        public HomeController(ILogger<HomeController> logger, ISortingHat sortingHat)
+        
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _sortingHat = sortingHat;
+        
         }
-
-        public SortingHat HouseName { get; set; }
 
         public IActionResult Index()
         {
             return View();
-        }
-
-
-        [HttpGet]
-        public async Task<IActionResult> Index()
-        {
-            HouseName = await _sortingHat.SortingHatOutcome();
-            return View(HouseName);
         }
 
         public IActionResult Results()
