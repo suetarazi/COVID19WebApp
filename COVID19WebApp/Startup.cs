@@ -7,11 +7,9 @@ using COVID19WebApp.Models.Interfaces;
 using COVID19WebApp.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace COVID19WebApp
@@ -28,19 +26,11 @@ namespace COVID19WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllersWithViews();
             
             //library dependency for MVC
             //services.AddMvc();
             //razor pages dependency; which uses MVC under the hood, so no need to include both!
             services.AddRazorPages();
-
-            //services.AddControllers()
-            //    .AddNewtonsoftJson(Options =>
-            //    Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-
-            //Add AWS Services here if needed:
-            //services.AddAWSService<IAmazon...>();
 
             //mappings
             services.AddTransient<ICovid19Data, Covid19DataService>();
@@ -57,7 +47,7 @@ namespace COVID19WebApp
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
