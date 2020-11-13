@@ -2,13 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using COVID19WebApp.Controllers;
 using COVID19WebApp.Models;
 using COVID19WebApp.Models.Interfaces;
-using COVID19WebApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
 
 namespace COVID19WebApp.Pages.Home   
 {
@@ -19,17 +16,15 @@ namespace COVID19WebApp.Pages.Home
         private ICovid19Data _covid19;
 
         [BindProperty]
-        //public WorldAndCountryViewModel AllData { get; set; }
         public WorldDataObject worldData { get; set; }
 
-        //[BindProperty]
+        
         public List<CountryResults> countryData { get; set; }
 
 
         [BindProperty]
         public string Country { get; set; }
 
-        //public string country => (string)TempData[nameof(country)];
 
         public IndexModel(ICovid19Data covid19)
         {
@@ -51,22 +46,5 @@ namespace COVID19WebApp.Pages.Home
 
         }
 
-
-        //public async Task<IActionResult> OnPostAsync([FromForm]string country)
-        //public async Task<IActionResult> OnPostAsync()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        TempData["country"] = country;
-        //        Country = Request.Form[nameof(Country)];
-        //        List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(Country);
-        //        List<CountryResults> countryData = await _covid19.GetCovid19DataForCountry(country);
-        //        return RedirectToAction("/Results/Results", countryData);
-        //    }
-        //    else
-        //    {
-        //        return Page();
-        //    }
-        //}
     }
 }
